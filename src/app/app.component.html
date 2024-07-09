@@ -1,0 +1,19 @@
+<div class="content" role="main">
+  <input type="number" [(ngModel)]="numberOne" (change)="reset()" class="form-control">
+  <input type="number" [(ngModel)]="numberTwo" (change)="reset()" class="form-control">
+</div>
+
+<br>
+
+<app-plus-operator     (resultEmit)="getResult($event)"  [one]="numberOne" [two]="numberTwo" style="padding-right: 5px;"></app-plus-operator>
+<app-minus-operator    (resultEmit)="getResult($event)"  [one]="numberOne" [two]="numberTwo" style="padding-right: 5px;"></app-minus-operator>
+<app-multiply-operator (resultEmit)="getResult($event)"  [one]="numberOne" [two]="numberTwo" style="padding-right: 5px;"></app-multiply-operator>
+
+<br>
+<br>
+
+<div *ngIf="output >=0 && operator">
+   {{  numberOne  }} {{operator}} {{ numberTwo }} = {{ output }}
+</div>
+
+<router-outlet></router-outlet>
